@@ -1,5 +1,7 @@
 const express = require("express");
 const path = require("path");
+const mongoose = require("mongoose");
+require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -10,6 +12,15 @@ app.use(express.static("public"));
 
 //temp data
 let server_data = [];
+
+async function DB_connection() {
+  await mongoose.connect(process.env.CONNECTION, {useNewURLParser: true})
+  .then(() => app.listen(PORT, () => {
+    console.log("Mongoose connection successful.")
+  }));
+}
+
+await DB_connection();
 
 // Homepage
 app.get("/", (req, res) => {

@@ -125,8 +125,12 @@ async function delete_post(index) {
 
 window.onload = function() {
   const button = document.querySelector("#submit_btn");
+  const clear_btn = document.querySelector("#clear_btn");
   button.onclick = function(event) {
     submit(event);
   };
+  clear_btn.onclick = function(event) {
+    clear_canvas(event);
+  }
   get_data(); // load initial data
 };

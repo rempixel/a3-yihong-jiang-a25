@@ -35,7 +35,8 @@ canvas.addEventListener('mouseup', (event) => {
     drawing = false;
 })
 
-function clear_canvas() {
+function clear_canvas(event) {
+   event.preventDefault();
    context.clearRect(0, 0, canvas.width, canvas.height);
    context.fillStyle = "white";
    context.fillRect(0, 0, canvas.width, canvas.height);
