@@ -50,8 +50,10 @@ function display_posts(data) {
     const image = new Image();
     image.src = entry.image;
     image.style.display = "inline-block";
-    image.style.maxWidth = "150px";
-    image.style.maxHeight = "150px";
+    image.style.minWidth = "150px";
+    image.style.minHeight = "150px";
+    image.style.maxWidth = "200px";
+    image.style.maxHeight = "200px";
     image.style.borderRadius = "3%";
     image.style.borderStyle = "Dashed";
     image.style.borderWidth = "1px";
@@ -273,3 +275,7 @@ window.onload = function() {
   };
 
 };
+if (currentUser != null) {
+  setInterval(get_data(), 600000);
+  console.log("Refreshing Data...");
+}
