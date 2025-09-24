@@ -1,6 +1,6 @@
 ## Drawing Application!
 
-Your Render (or alternative server) link e.g. http://a3-joshua-cuneo.render.me
+Your Render (or alternative server) link e.g. https://a3-yihongjiang-a25.xvr6.dev/
 
 Include a very brief summary of your project here. Images are encouraged, along with concise, high-level text. Be sure to include:
 ### Goals

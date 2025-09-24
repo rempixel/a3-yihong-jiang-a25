@@ -7,7 +7,7 @@ const passport = require("./passport-config");
 const User = require("./user_schema");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 9621;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -38,7 +38,7 @@ async function DB_connection() {
 
 function startServer() {
   app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+    console.log(`Server running at https://a3-yihongjiang-a25.xvr6.dev/`);
   });
 }
 
