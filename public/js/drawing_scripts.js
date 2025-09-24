@@ -4,29 +4,29 @@ const context = canvas.getContext("2d");
 let drawing = false;
 let x = 0;
 let y = 0;
-const rect = canvas.getBoundingClientRect();
 context.fillStyle = "white";
 context.fillRect(0, 0, canvas.width, canvas.height);
 
 canvas.addEventListener('mousedown', (event) =>{
     drawing = true;
-    x = event.clientX - rect.x;
-    y = event.clientY - rect.y;
+    const pos = get_canvas_position(event);
+    x = pos.x;
+    y = pos.y;
 })
 
 canvas.addEventListener('mousemove', (event) => {
     canvas.style.cursor = 'crosshair';
     if (!drawing) return;
 
-    console.log(event.clientX, event.clientY);
-
+    const pos = get_canvas_position(event);
+    
     context.beginPath();
     context.lineWidth = 5;
     context.strokeStyle = 'black';
     context.lineCap = 'round';
     context.moveTo(x, y);
-    x = event.clientX - rect.x;
-    y = event.clientY - rect.y;
+    x = pos.x;
+    y = pos.y;
     context.lineTo(x, y);
     context.stroke();
 })
@@ -40,4 +40,19 @@ function clear_canvas(event) {
    context.clearRect(0, 0, canvas.width, canvas.height);
    context.fillStyle = "white";
    context.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+function reinitialize_canvas() {
+  if (canvas) {
+    context.fillStyle = "white";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+  }
+}
+
+function get_canvas_position(event) {
+  const rect = canvas.getBoundingClientRect();
+  return {
+    x: event.clientX - rect.left,
+    y: event.clientY - rect.top
+  };
 }
