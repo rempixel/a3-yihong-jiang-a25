@@ -49,7 +49,6 @@ function ensure_authenticated(req, res, next) {
   res.status(401).json({ error: "Authentication required" });
 }
 
-// Test route
 app.get('/test', (req, res) => {
   console.log('Test route hit!');
   res.json({ message: 'Server is working!' });
@@ -243,11 +242,9 @@ function derive_zodiac(string) {
   return zodiac_map[modulo];
 }
 
-// Initialize database and start server
 async function init() {
   await DB_connection();
   startServer();
 }
 
 init();
-

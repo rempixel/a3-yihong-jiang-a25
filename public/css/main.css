@@ -1,3 +1,4 @@
+@import "tailwindcss";
 body {
   background: var(--background-accent-color);
   color:var(--text-main-color);
