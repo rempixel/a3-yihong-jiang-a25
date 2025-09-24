@@ -3,6 +3,7 @@
   <head>
     <title>CS4241 Assignment 3</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/output.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,38 +11,44 @@
   </head>
   <body>
     <div id="auth-header" class="p-5 bg-[#577180] text-amber-50">
-      <div id="not-authenticated" style="display: none;">
-        <p class="p-3">Please login with GitHub to access the drawing app:</p>
-        <a href="/auth/github" class= "bg-gray-900 text-white p-10 rounded-md" style="background-color: #24292e; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+      <div id="not-authenticated" style="display: none;" class="">
+        <span class="text-2xl">Please login with GitHub to access the drawing app:</span>
+        <a href="/auth/github" class= "bg-gray-900 text-white p-3 rounded-md ml-2 mt-3">
           Login with GitHub
         </a>
       </div>
       <div id="authenticated" style="display: none;">
         <div style="display: flex; align-items: center; justify-content: space-between;">
-          <div style="display: flex; align-items: center;">
-            <img id="user-avatar" src="" alt="" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 10px;">
+          <div style="display: flex; align-items: center;" class="text-lg">
+            <img id="user-avatar" src="" alt="User's Github profile picture" class="w-15 h-15 rounded-full mr-5">
             <span>Welcome, <span id="user-name"></span>!</span>
           </div>
-          <a href="/logout" class="bg-#dc3545" style="background-color: #dc3545; color: white; padding: 8px 16px; text-decoration: none; border-radius: 3px;">
+          <a href="/logout" class="bg-[#F58600] text-white pt-2 pb-2 pr-4 pl-4 rounded-md hover:bg-[#d15400]">
             Logout
           </a>
         </div>
       </div>
     </div>
+    <div id="auth-card" class="flex-container">
+     
+    </div>
     <div id="app-content" style="display: none;">
       <div class="flex-container">
-        <div>
+        <div class="flex justify-center">
           <form>
-            <label for="yourname">Enter your name!</label><br>
-            <input type="text" name="name" id="yourname" placeholder="name" value="" autocomplete="off"><br>
-            <label for="birthday">Enter your birthday!</label><br>
-            <input type="date" name="birthday" id="birthday" value="" autocomplete="off"><br>
-            <label for="drawing_canvas">Make a cool drawing!</label><br>
-            <canvas height="350px" width="350px" id="drawing_canvas">
-            </canvas>
+            <label for="yourname" class="text-2xl">Enter your name!*</label><br>
+            <input type="text" name="name" id="yourname" placeholder="name" value="" autocomplete="off" class="bg-white"><br>
+            <label for="birthday" class="text-2xl">Enter your birthday!*</label><br>
+            <input type="date" name="birthday" id="birthday" autocomplete="off" class="bg-white"><br>
+            <label for="drawing_canvas" class="text-2xl">Make a cool drawing!</label><br>
+            <canvas
+                height="350"
+                width="350"
+                id="drawing_canvas"
+              ></canvas>
             <div>
-              <button id="clear_btn">clear</button>
-              <button type="button" id="submit_btn">submit</button>
+              <button id="clear_btn" class="bg-[#F58600] text-[#ffff] p-2 rounded-md hover:bg-[#d15400] mr-5">clear</button>
+              <button type="button" id="submit_btn" class="bg-[#9EDDFF] p-2 rounded-md hover:bg-[#4a9eff]">submit</button>
             </div>
           </form>  
         </div>

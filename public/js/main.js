@@ -49,6 +49,7 @@ function display_posts(data) {
   data.forEach((entry, index) => {
     const image = new Image();
     image.src = entry.image;
+    image.style.display = "inline-block";
     image.style.maxWidth = "150px";
     image.style.maxHeight = "150px";
     image.style.borderRadius = "3%";
@@ -62,33 +63,31 @@ function display_posts(data) {
     post.style.borderRadius = "5px";
     post.style.position = "relative";
 
-    // Only show edit/delete buttons for the current user's posts
+    //only show edit/delete buttons for the current user's posts
     if (currentUser && entry._id === currentUser.id) {
       const delete_btn = document.createElement("button");
       delete_btn.textContent = "×";
       delete_btn.onclick = () => delete_post();
-      delete_btn.style.backgroundColor = "#ff6961";
+      delete_btn.style.backgroundColor = "#F58600";
       delete_btn.style.color = "white";
-      delete_btn.style.width = "20px";
-      delete_btn.style.height = "20px";
-      delete_btn.style.position = "absolute";
-      delete_btn.style.top = "5px";
-      delete_btn.style.right = "5px";
+      delete_btn.style.width = "25px";
+      delete_btn.style.height = "25px";
+      delete_btn.style.float = "right";
       delete_btn.style.borderRadius = "50%";
       delete_btn.style.border = "none";
       delete_btn.style.cursor = "pointer";
       delete_btn.style.fontSize = "12px";
+      delete_btn.style.hover
 
       const edit_btn = document.createElement("button");
       edit_btn.textContent = "✎";
       edit_btn.onclick = () => edit_post(entry);
-      edit_btn.style.backgroundColor = "#87CEEB";
+      edit_btn.style.backgroundColor = "#9EDDFF";
       edit_btn.style.color = "white";
-      edit_btn.style.width = "20px";
-      edit_btn.style.height = "20px";
-      edit_btn.style.position = "absolute";
-      edit_btn.style.top = "5px";
-      edit_btn.style.right = "30px";
+      edit_btn.style.width = "25px";
+      edit_btn.style.height = "25px";
+      edit_btn.style.float = "right";
+      edit_btn.style.marginRight = "5px";
       edit_btn.style.borderRadius = "50%";
       edit_btn.style.border = "none";
       edit_btn.style.cursor = "pointer";
@@ -121,7 +120,12 @@ function display_posts(data) {
     
     const post_zodiac = document.createElement("p");
     post_zodiac.textContent = `Zodiac: ${entry.zodiac}`;
-    
+
+    post.style.textAlign = "center";
+
+    const br = document.createElement("br");
+    post.appendChild(br);
+    post.appendChild(br);
     post.appendChild(post_name);
     post.appendChild(post_age);
     post.appendChild(post_zodiac);
@@ -138,6 +142,7 @@ async function check_authentication() {
     if (authData.authenticated) {
       currentUser = authData.user;
       document.getElementById("not-authenticated").style.display = "none";
+      document.getElementById("auth-card").style.display="none";
       document.getElementById("authenticated").style.display = "block";
       document.getElementById("app-content").style.display = "block";
       
@@ -163,6 +168,7 @@ async function check_authentication() {
       }, 100);
     } else {
       document.getElementById("not-authenticated").style.display = "block";
+            document.getElementById("auth-card").style.display="block";
       document.getElementById("authenticated").style.display = "none";
       document.getElementById("app-content").style.display = "none";
     }
@@ -258,15 +264,12 @@ window.onload = function() {
   const button = document.querySelector("#submit_btn");
   const clear_btn = document.querySelector("#clear_btn");
   
-  if (button) {
-    button.onclick = function(event) {
-      submit(event);
-    };
-  }
-  
-  if (clear_btn) {
-    clear_btn.onclick = function(event) {
-      clear_canvas(event);
-    };
-  }
+  button.onclick = function(event) {
+    submit(event);
+  };
+
+  clear_btn.onclick = function(event) {
+    clear_canvas(event);
+  };
+
 };
