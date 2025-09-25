@@ -30,6 +30,7 @@ I used TailwindCSS because I have been meaning to experiment and learn it and th
 ## Technical Achievements
 - **Tech Achievement 1**: I used OAuth authentication via the GitHub strategy.
 - **Tech Achievement 2**: I am hosting it remotely on my roommate's NAS! It's technically free outside of my power bill but it's been running even if I was not hosting this. I like this because I can control it a lot better and not have to worry about having to contact support when something goes wrong since I can debug it myself with a bit more control.
+- **Tech Achievement 3**: I got 100% on all 4 Lighthouse tests.
 
 ### Design/Evaluation Achievements
 - **Design Achievement 1**: I followed the following tips from the W3C Web Accessibility Initiative...
